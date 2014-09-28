@@ -1,0 +1,5 @@
+LoadScene("Sponza.script")
+
+SetTime(6,0)
+SetTimeMulti(50)
+SetFlyMode(1)

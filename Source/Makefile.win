@@ -1,0 +1,56 @@
+# Project: JohanCity
+# Makefile created by Dev-C++ 5.4.3 RC2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = obj/JohanGame_private.res
+OBJ      = obj/main.o obj/Tile.o obj/resource.o obj/Listeners.o obj/Menu.o obj/Batch.o obj/JohanCity.o obj/Building.o obj/Assets.o $(RES)
+LINKOBJ  = obj/main.o obj/Tile.o obj/resource.o obj/Listeners.o obj/Menu.o obj/Batch.o obj/JohanCity.o obj/Building.o obj/Assets.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -mwindows lib/x64/libd3d9.a lib/x64/libd3dcompiler_43.a lib/x64/libd3dx9_43.a lib/x64/libJohanEngine.a  -mwindows
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = ../JohanCity.exe
+CXXFLAGS = $(CXXINCS) -std=gnu++98 -Wall -mwindows -pipe -Wno-sign-compare -Wno-switch
+CFLAGS   = $(INCS) -std=gnu++98 -Wall -mwindows -pipe
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+obj/main.o: main.cpp
+	$(CPP) -c main.cpp -o obj/main.o $(CXXFLAGS)
+
+obj/Tile.o: Tile.cpp
+	$(CPP) -c Tile.cpp -o obj/Tile.o $(CXXFLAGS)
+
+obj/resource.o: resource.cpp
+	$(CPP) -c resource.cpp -o obj/resource.o $(CXXFLAGS)
+
+obj/Listeners.o: Listeners.cpp
+	$(CPP) -c Listeners.cpp -o obj/Listeners.o $(CXXFLAGS)
+
+obj/Menu.o: Menu.cpp
+	$(CPP) -c Menu.cpp -o obj/Menu.o $(CXXFLAGS)
+
+obj/Batch.o: Batch.cpp
+	$(CPP) -c Batch.cpp -o obj/Batch.o $(CXXFLAGS)
+
+obj/JohanCity.o: JohanCity.cpp
+	$(CPP) -c JohanCity.cpp -o obj/JohanCity.o $(CXXFLAGS)
+
+obj/Building.o: Building.cpp
+	$(CPP) -c Building.cpp -o obj/Building.o $(CXXFLAGS)
+
+obj/Assets.o: Assets.cpp
+	$(CPP) -c Assets.cpp -o obj/Assets.o $(CXXFLAGS)
+
+obj/JohanGame_private.res: JohanGame_private.rc 
+	$(WINDRES) -i JohanGame_private.rc --input-format=rc -o obj/JohanGame_private.res -O coff 

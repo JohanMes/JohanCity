@@ -1,0 +1,3 @@
+diffuse Skybox_2.dds 1
+specular Skybox_6.dds 1 1
+shader Skybox

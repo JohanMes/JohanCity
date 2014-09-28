@@ -1,0 +1,3 @@
+diffuse Sun.dds 1
+shader Sun
+alphatest 1
